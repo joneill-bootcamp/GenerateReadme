@@ -1,0 +1,25 @@
+{
+  "name": "static-site",
+  "version": "1.0.0",
+  "description": "Generates a useful Readme.md",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "inquirer": "^6.5.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joneill-bootcamp/GenerateReadme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joneill-bootcamp/GenerateReadme/issues"
+  },
+  "homepage": "https://github.com/joneill-bootcamp/GenerateReadme#readme"
+}
