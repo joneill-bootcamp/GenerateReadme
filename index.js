@@ -59,6 +59,7 @@ const questions = [{
     }
 ];
 
+// Write to file, remove old file
 function writeToFile(fileName, data) {
 
     fs.writeFile(fileName, data, function (err) {
@@ -70,6 +71,7 @@ function writeToFile(fileName, data) {
     });
 }
 
+// Append to nominated file
 function appendToFile(fileName, data) {
 
     fs.appendFile(fileName, data, function (err) {
@@ -81,20 +83,23 @@ function appendToFile(fileName, data) {
     });
 }
 
-
+// Main function
 function init() {
     inquirer
         .prompt(questions)
         .then(function (response) {
 
-            // process responses
+            // Write responses to quetions
             writeToFile("README.md", generateMarkDown(response));
 
+            // Call GitHub API to obtain details on repo owner email
             axios.get('https://api.github.com/repos/' + response.gitHubUser + '/' + response.repo)
                 .then((response1) => {
                     let avatar_url = response1.data.owner.avatar_url;
                     appendToFile("README.md", avatar_url);
                 });
+
+            // call GitHub API to obtain users email
             axios.get('https://api.github.com/users/' + response.gitHubUser)
                 .then((response1) => {
                     let email = response1.data.email

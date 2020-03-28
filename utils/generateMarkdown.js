@@ -20,9 +20,9 @@ function generateMarkdown(data) {
 function generateMarkdown1(data) {
   return `
 
-# ${data} \n
+# ${data} 
 
-`;
+` + '\n';
 }
 
 module.exports = generateMarkdown;
