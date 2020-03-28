@@ -1,9 +1,9 @@
 // Bring in required libraries 
 const inquirer = require("inquirer");
 const generateMarkDown = require("./utils/generateMarkdown.js");
+const generateMarkdown1 = require("./utils/generateMarkdown.js");
 const fs = require("fs");
 const axios = require("axios");
-
 
 // Define Questions
 const questions = [{
@@ -61,7 +61,7 @@ const questions = [{
 
 function writeToFile(fileName, data) {
 
-    fs.writeFile("log.txt", data, function (err) {
+    fs.writeFile(fileName, data, function (err) {
 
         if (err) {
             return console.log(err);
@@ -70,29 +70,36 @@ function writeToFile(fileName, data) {
     });
 }
 
+function appendToFile(fileName, data) {
+
+    fs.appendFile(fileName, data, function (err) {
+
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Success!");
+    });
+}
+
+
 function init() {
-
-    let portraitURL = "";
-    let email = "";
-
     inquirer
         .prompt(questions)
         .then(function (response) {
+
             // process responses
+            writeToFile("README.md", generateMarkDown(response));
 
             axios.get('https://api.github.com/repos/' + response.gitHubUser + '/' + response.repo)
                 .then((response1) => {
-                    //console.log(response1.data);
-                    portraitURL = response1.data;
-                    console.log(portraitURL);
+                    let avatar_url = response1.data.owner.avatar_url;
+                    appendToFile("README.md", avatar_url);
                 });
             axios.get('https://api.github.com/users/' + response.gitHubUser)
-                .then((response2) => {
-                    //console.log(response.data);
-
+                .then((response1) => {
+                    let email = response1.data.email
+                    appendToFile("README.md", email);
                 });
-
-            console.log(generateMarkDown(response, response1, response2));
         });
 }
 

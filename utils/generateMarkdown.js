@@ -1,4 +1,4 @@
-function generateMarkdown(data, user, repo) {
+function generateMarkdown(data) {
   return `
 # ${data.title}
 
@@ -14,6 +14,13 @@ function generateMarkdown(data, user, repo) {
 
 # ${data.questions}
 
+`;
+}
+
+function generateMarkdown1(data) {
+  return `
+
+# ${data} \n
 
 `;
 }
