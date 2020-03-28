@@ -4,15 +4,15 @@ function generateMarkdown(data) {
 
 # ${data.description}
 
-# ${data.installation}
+## ${data.installation}
 
-# ${data.usage}
+## ${data.usage}
 
-# ${data.contributing}
+## ${data.contributing}
 
-# ${data.tests}
+## ${data.tests}
 
-# ${data.questions}
+## ${data.questions}
 
 `;
 }
@@ -20,7 +20,7 @@ function generateMarkdown(data) {
 function generateMarkdown1(data) {
   return `
 
-# ${data} 
+## ${data} 
 
 ` + '\n';
 }
