@@ -72,23 +72,27 @@ function writeToFile(fileName, data) {
 
 function init() {
 
+    let portraitURL = "";
+    let email = "";
+
     inquirer
         .prompt(questions)
         .then(function (response) {
             // process responses
 
-            console.log(response);
-            console.log(generateMarkDown(response));
-            //console.log(getUser(response.githubuser));
-
             axios.get('https://api.github.com/repos/' + response.gitHubUser + '/' + response.repo)
-                .then((REPOresponse) => {
-                    console.log(REPOresponse.data);
+                .then((response1) => {
+                    //console.log(response1.data);
+                    portraitURL = response1.data;
+                    console.log(portraitURL);
                 });
             axios.get('https://api.github.com/users/' + response.gitHubUser)
-                .then((USERresponse) => {
-                    console.log(USERresponse.data);
+                .then((response2) => {
+                    //console.log(response.data);
+
                 });
+
+            console.log(generateMarkDown(response, response1, response2));
         });
 }
 

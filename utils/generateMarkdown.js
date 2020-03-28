@@ -1,20 +1,18 @@
-function generateMarkdown(data) {
+function generateMarkdown(data, user, repo) {
   return `
 # ${data.title}
 
-# ${data.title}
+# ${data.description}
 
-# ${data.title}
+# ${data.installation}
 
-# ${data.title}
+# ${data.usage}
 
-# ${data.title}
+# ${data.contributing}
 
-# ${data.title}
+# ${data.tests}
 
-# ${data.title}
-
-# ${data.title}
+# ${data.questions}
 
 
 `;
