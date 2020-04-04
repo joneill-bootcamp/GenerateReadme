@@ -2,7 +2,8 @@ const generateMarkdown = ({
   title,
   description,
   name,
-  email
+  email,
+  avatar_url
 }) => `
 #${title}
 =========
@@ -11,6 +12,9 @@ const generateMarkdown = ({
 ${description}
 
 This project was build by ${name}, who can be reached at ${email}
+
+Here's the Avatar for the repo owner.
+![Image description](${avatar_url})
 
 #Table of Contents
 1. [Installation](##Installation)

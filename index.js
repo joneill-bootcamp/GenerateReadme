@@ -42,7 +42,8 @@ const init = async () => {
         const {
             data: {
                 name,
-                email
+                email,
+                avatar_url
             }
         } = await axios.get(`https://api.github.com/users/${gitHubUser}`);
 
@@ -50,7 +51,8 @@ const init = async () => {
             title,
             description,
             name,
-            email
+            email,
+            avatar_url
         })
 
         await asyncWriteFile("log.txt", genereatedMarkdown)
