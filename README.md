@@ -1,12 +1,13 @@
-#Readme Generator
+# Readme Generator
 
-#Description
+# Description
+
 Simply execute this handly little utility, provide it with your GitHub user name and repo id and it will generate
 a simple BoilerPlate README.MD file for you as "log.txt"
 
 <img width="577" alt="image" src="https://user-images.githubusercontent.com/59762660/78451015-7b2b5780-76ce-11ea-9ba7-445e016f5df9.png">
-
-#Table of Contents
+ 
+# Table of Contents
 
 1. [Installation](##Installation)
 2. [Usage](##Usage)
@@ -15,7 +16,7 @@ a simple BoilerPlate README.MD file for you as "log.txt"
 5. [Tests](##Tests)
 6. [Questions](##Questions)
 
-##Installation
+## Installation
 
 Clone the repo
 
@@ -25,24 +26,26 @@ Run the following command
 
 > npm install
 
-##Usage
+## Usage
 
 To execute this tool
 
 > npm run start
 
-##License
+## License
 
 This project is licensed under the terms of the **MIT** license.
 
-##Contributing
+## Contributing
 
-##Tests
+Please feel free to contribute to project
+
+## Tests
 
 Enter the following command
 
 npm run test
 
-##Questions
+## Questions
 
 Please direct your questions to joneill-bootcamp@supersoftware.biz
