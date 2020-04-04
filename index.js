@@ -54,6 +54,7 @@ const init = async () => {
                 location
             }
         } = await axios.get(`https://api.github.com/users/${gitHubUser}`)
+
         const genereatedMarkdown = generateMarkDown({
             html_url,
             repos_url,
@@ -63,7 +64,9 @@ const init = async () => {
             blog,
             location
         })
+
         await asyncWriteFile("log.txt", genereatedMarkdown)
+
         console.log("Successfullt writen to file!")
     } catch (e) {
         console.log("Error - Init: ", e)
