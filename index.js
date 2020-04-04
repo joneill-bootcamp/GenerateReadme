@@ -26,15 +26,6 @@ const questions = [{
     }
 ];
 
-const writeToFile = async (filename, data) => {
-    try {
-        await asyncWriteFile(filename, data);
-        console.log("Writen to file succesfully");
-    } catch (e) {
-        console.log("Error: ", e);
-    }
-}
-
 const init = async () => {
     const {
         gitHubUser,
@@ -67,7 +58,7 @@ const init = async () => {
 
         await asyncWriteFile("log.txt", genereatedMarkdown)
 
-        console.log("Successfullt writen to file!")
+        console.log("Successfully writen to file!")
     } catch (e) {
         console.log("Error - Init: ", e)
     }
