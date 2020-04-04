@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
-const utils = require("util")
+const utils = require("util");
 
 const generateMarkDown = require("./utils/generateMarkdown.js");
 
@@ -53,7 +53,9 @@ const init = async () => {
             email,
             company,
             blog,
-            location
+            location,
+            title,
+            description
         })
 
         await asyncWriteFile("log.txt", genereatedMarkdown)
