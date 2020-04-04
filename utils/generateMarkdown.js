@@ -1,28 +1,26 @@
-function generateMarkdown(data) {
-  return `
-# ${data.title}
+const generateMarkdown = ({
+  html_url,
+  repos_url,
+  name,
+  email,
+  company,
+  blog,
+  location
+}) => `
+# ${html_url}
 
-# ${data.description}
+# ${repos_url}
 
-## ${data.installation}
+## ${name}
 
-## ${data.usage}
+## ${email}
 
-## ${data.contributing}
+## ${company}
 
-## ${data.tests}
+## ${blog}
 
-## ${data.questions}
+## ${location}
 
 `;
-}
-
-function generateMarkdown1(data) {
-  return `
-
-## ${data} 
-
-` + '\n';
-}
 
 module.exports = generateMarkdown;
