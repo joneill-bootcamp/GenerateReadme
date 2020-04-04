@@ -16,6 +16,11 @@ const questions = [{
     },
     {
         type: "input",
+        message: "Please provide the repo name: ",
+        name: "repoName"
+    },
+    {
+        type: "input",
         message: "Please provide a title for the project: ",
         name: "title"
     },
@@ -36,26 +41,16 @@ const init = async () => {
     try {
         const {
             data: {
-                html_url,
-                repos_url,
                 name,
-                email,
-                company,
-                blog,
-                location
+                email
             }
-        } = await axios.get(`https://api.github.com/users/${gitHubUser}`)
+        } = await axios.get(`https://api.github.com/users/${gitHubUser}`);
 
         const genereatedMarkdown = generateMarkDown({
-            html_url,
-            repos_url,
-            name,
-            email,
-            company,
-            blog,
-            location,
             title,
-            description
+            description,
+            name,
+            email
         })
 
         await asyncWriteFile("log.txt", genereatedMarkdown)
