@@ -3,20 +3,27 @@ const generateMarkdown = ({
   description,
   name,
   email,
-  avatar_url
+  avatar_url,
+  node_id,
+  full_name,
+  html_url,
+  starred_url
 }) => `
-#${title}
+# ${title}
 =========
 
-#Description
+# Description
 ${description}
+
+# Repo Link
+>${html_url}
 
 This project was build by ${name}, who can be reached at ${email}
 
 Here's the Avatar for the repo owner.
 ![Image description](${avatar_url})
 
-#Table of Contents
+# Table of Contents
 1. [Installation](##Installation)
 2. [Usage](##Usage)
 3. [License](##License)
@@ -24,34 +31,34 @@ Here's the Avatar for the repo owner.
 5. [Tests](##Tests)
 6. [Questions](##Questions)
 
-##Installation
+## Installation
 
 Clone the repo 
-> git clone XXXXXXX
+> git clone ${html_url}
 
 Run the following command
 > npm install 
 
-##Usage
+## Usage
 
 To execute this tool
 > npm run start
 
-##License
+## License
 
 This project is licensed under the terms of the **MIT** license.
 
-##Contributing
+## Contributing
 
-##Tests
+## Tests
 
 Enter the following command 
 
 npm run test
 
-##Questions
+## Questions
 
-Please direct your questions to joneill-bootcamp@supersoftware.biz
+Please direct your questions to 
 
 
 `;

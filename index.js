@@ -34,6 +34,7 @@ const questions = [{
 const init = async () => {
     const {
         gitHubUser,
+        repoName,
         title,
         description
     } = await inquirer.prompt(questions)
@@ -47,12 +48,27 @@ const init = async () => {
             }
         } = await axios.get(`https://api.github.com/users/${gitHubUser}`);
 
+        const {
+            data: {
+                node_id,
+                full_name,
+                owner: {
+                    html_url,
+                    starred_url
+                }
+            }
+        } = await axios.get(`https://api.github.com/repos/${gitHubUser}/${repoName}`);
+
         const genereatedMarkdown = generateMarkDown({
             title,
             description,
             name,
             email,
-            avatar_url
+            avatar_url,
+            node_id,
+            full_name,
+            html_url,
+            starred_url
         })
 
         await asyncWriteFile("log.txt", genereatedMarkdown)
